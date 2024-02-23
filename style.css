@@ -214,7 +214,7 @@ hr {
   align-items: center;
   position: fixed;
   top: 0;
-  /* transition: display 1s linear; */
+  transition: display 4s linear;
 }
 
 svg {
