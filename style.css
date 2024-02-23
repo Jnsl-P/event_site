@@ -6,6 +6,9 @@
   box-sizing: border-box;
   color: black;
 }
+nav{
+  z-index: 1000;
+}
 
 .navbar {
   --bs-navbar-nav-link-padding-x: 1.7rem;
@@ -25,7 +28,11 @@
 
 #navbarNav {
   position: relative;
-  right: 5%;
+  right: 0%;
+}
+
+.navbar-collapse {
+  text-align: center;
 }
 
 /* @media (min-width: 768px) {
@@ -60,6 +67,19 @@
   font-size: 2.5rem;
   margin-top: 90px;
   font-family: "Caveat", cursive;
+  animation: fadeInAnimation ease 4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .btn-browse {
@@ -70,7 +90,6 @@
   border-radius: 7px;
   margin: 30px 0px;
 }
-
 
 .carousel-item {
   height: 90vh;
@@ -141,7 +160,7 @@ hr {
 }
 
 .footer {
-  padding: 50px 0px 50px 100px;
+  padding: 50px 50px 50px 50px;
   background-color: #f0f0f0;
 }
 
@@ -152,4 +171,86 @@ hr {
 .footer-links ul li a {
   color: black;
   text-decoration: none;
+}
+.socials {
+  margin: 0px;
+  padding: 0px;
+}
+
+.barrier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 1px;
+  visibility: hidden;
+}
+
+.dropdown-menu {
+  /* border: none; */
+  /* border-radius: 0px; */
+  background-color: #f8f9fa;
+  transition: 1s linear;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+@media (min-width: 992px) {
+  .barrier {
+    display: none;
+  }
+  #navbarNav {
+    right: 5%;
+  }
+}
+
+#spinner {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  /* transition: display 1s linear; */
+}
+
+svg {
+  width: 3.25em;
+  transform-origin: center;
+  animation: rotate4 2s linear infinite;
+}
+
+circle {
+  fill: none;
+  stroke: hsl(214, 97%, 59%);
+  stroke-width: 2;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash4 {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dashoffset: -125px;
+  }
 }
